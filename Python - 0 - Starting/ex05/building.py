@@ -1,50 +1,37 @@
 import sys
 
-sys.tracebacklimit=0
+sys.tracebacklimit = 0
+
 
 def count_characters(str):
     """Counts the characters"""
     return len(str)
 
+
 def count_uppercase(str):
     """Counts the uppercase characters"""
-    count = 0
-    for char in str:
-        if char.isupper():
-            count += 1
-    return count
+    return sum(1 for c in str if c.isupper())
+
 
 def count_lowercase(str):
     """Counts the lowercase characters"""
-    count = 0
-    for char in str:
-        if char.islower():
-            count += 1
-    return count
+    return sum(1 for c in str if c.islower())
+
 
 def count_punctuation(str):
     """Counts the punctuation characters"""
-    count = 0
-    for char in str:
-        if char in ".,;:!?":
-            count += 1
-    return count
+    return sum(1 for c in str if c in ".,;:!?-\"'()")
+
 
 def count_spaces(str):
     """Counts the spaces characters"""
-    count = 0
-    for char in str:
-        if char.isspace():
-            count += 1
-    return count
+    return sum(1 for c in str if c.isspace())
+
 
 def count_digits(str):
     """Counts the digits characters"""
-    count = 0
-    for char in str:
-        if char.isdigit():
-            count += 1
-    return count
+    return sum(1 for c in str if c.isdigit())
+
 
 def display_all(str):
     """Display all the counts"""
@@ -55,16 +42,18 @@ def display_all(str):
     print("-", count_spaces(str), "spaces")
     print("-", count_digits(str), "digits")
 
+
 def main():
-# your tests and your error handling
+    # your tests and your error handling
     if (len(sys.argv) == 1):
         print("No argument")
     else:
-        assert(not len(sys.argv) > 2), "more than one argument is provided"
+        assert (not len(sys.argv) > 2), "more than one argument is provided"
         try:
             display_all(sys.argv[1])
         except AssertionError as e:
             print(e)
+
 
 if __name__ == "__main__":
     """Main function"""
