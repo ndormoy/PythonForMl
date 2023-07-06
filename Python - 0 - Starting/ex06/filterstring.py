@@ -9,6 +9,7 @@ def is_even(num):
 
 
 def manage_string(str, n):
+    """Manage the format of a string"""
     spliced = str.split()
     filtered = [x for x in spliced if len(x) > n]
     return filtered
