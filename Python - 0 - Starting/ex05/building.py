@@ -25,12 +25,18 @@ def count_punctuation(str):
 
 def count_spaces(str):
     """Counts the spaces characters"""
-    return sum(1 for c in str if c.isspace())
+    return sum(1 for c in str if c.isspace() or c == '\r' or c == '\n')
 
 
 def count_digits(str):
     """Counts the digits characters"""
     return sum(1 for c in str if c.isdigit())
+
+
+def read_input():
+    """Reads input from the user and returns it as a string"""
+    user_input = input("What is the text to count?\n")
+    return user_input
 
 
 def display_all(str):
@@ -46,7 +52,7 @@ def display_all(str):
 def main():
     # your tests and your error handling
     if (len(sys.argv) == 1):
-        print("No argument")
+        display_all(read_input())
     else:
         assert (not len(sys.argv) > 2), "more than one argument is provided"
         try:
