@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 def main():
     # your tests and your error handling
     try:
-        df = load("population_total.csv")
+        df = load("life_expectancy_years.csv")
         france_df = df[df['country'] == 'France']
         # retrieves the current Axes object using plt.gca().
         ax = plt.gca()

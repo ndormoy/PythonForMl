@@ -31,32 +31,35 @@ def filter_country(country_df, years):
 
 def main():
     """Main function"""
-    df = load("population_total.csv")
-    france_df = df[df["country"] == "France"]
-    belgium_df = df[df["country"] == "Belgium"]
-    years = df.columns[1:]
-    # Filter Country
-    filtered_fr_df = filter_country(france_df, years)
-    filtered_bel_df = filter_country(belgium_df, years)
-    # Melt the DataFrames
-    france_melted = pd.melt(filtered_fr_df, id_vars="country",
-                            var_name="Year", value_name="Population")
-    belgium_melted = pd.melt(filtered_bel_df, id_vars="country",
-                             var_name="Year", value_name="Population")
-    # retrieves the current Axes object using plt.gca().
-    ax = plt.gca()
-    # Create the Seaborn plot
-    sns.lineplot(x="Year", y="Population", data=belgium_melted,
-                 label="Belgium", color="blue")
-    sns.lineplot(x="Year", y="Population", data=france_melted,
-                 label="France", color="green")
-    plt.title("Population Projections")
-    plt.legend(loc="lower right")
-    # Generates a range of values from 0 to 9 times 40 (360) with a step of 40.
-    ax.set_xticks(range(0, 7 * 40, 40))
-    plt.yticks([0, 20_000_000, 40_000_000, 60_000_000],
-               ["", "20M", "40M", "60M"])
-    plt.show()
+    try:
+        df = load("population_total.csv")
+        france_df = df[df["country"] == "France"]
+        belgium_df = df[df["country"] == "Belgium"]
+        years = df.columns[1:]
+        # Filter Country
+        filtered_fr_df = filter_country(france_df, years)
+        filtered_bel_df = filter_country(belgium_df, years)
+        # Melt the DataFrames
+        france_melted = pd.melt(filtered_fr_df, id_vars="country",
+                                var_name="Year", value_name="Population")
+        belgium_melted = pd.melt(filtered_bel_df, id_vars="country",
+                                var_name="Year", value_name="Population")
+        # retrieves the current Axes object using plt.gca().
+        ax = plt.gca()
+        # Create the Seaborn plot
+        sns.lineplot(x="Year", y="Population", data=belgium_melted,
+                    label="Belgium", color="blue")
+        sns.lineplot(x="Year", y="Population", data=france_melted,
+                    label="France", color="green")
+        plt.title("Population Projections")
+        plt.legend(loc="lower right")
+        # Generates a range of values from 0 to 9 times 40 (360) with a step of 40.
+        ax.set_xticks(range(0, 7 * 40, 40))
+        plt.yticks([0, 20_000_000, 40_000_000, 60_000_000],
+                ["", "20M", "40M", "60M"])
+        plt.show()
+    except AssertionError as e:
+        print(e)
 
 
 if __name__ == "__main__":
