@@ -6,8 +6,6 @@ from PIL import Image
 
 sys.tracebacklimit = 0
 
-# Display information about the image
-
 
 def ft_load(path: str) -> Image:
     """Load an image from the str name and
