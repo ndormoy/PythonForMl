@@ -16,5 +16,7 @@ class calculator:
         print(self.vector)
 
     def __truediv__(self, scalar) -> None:
+        if (scalar == 0):
+            raise ValueError("You cannot divide by zero")
         self.vector = [x / scalar for x in self.vector]
         print(self.vector)
