@@ -3,9 +3,9 @@ from abc import ABC, abstractmethod
 
 class Character(ABC):
     """Abstract Character class"""
-    def __init__(self, name, is_alive=True):
+    def __init__(self, first_name, is_alive=True):
         """Character constructor"""
-        self.name = name
+        self.first_name = first_name
         self.is_alive = is_alive
 
     @abstractmethod
@@ -15,9 +15,9 @@ class Character(ABC):
 
 class Stark(Character):
     """Stark Class inerhite from Character"""
-    def __init__(self, name, is_alive=True):
+    def __init__(self, first_name, is_alive=True):
         """Stark constructor"""
-        super().__init__(name, is_alive)
+        super().__init__(first_name, is_alive)
     
     def die(self):
         """Stark die function"""
