@@ -15,17 +15,3 @@ print(Cersei.is_alive)
 print("---")
 Jaine = Lannister.create_lannister("Jaine", True)
 print(f"Name : {Jaine.first_name, type(Jaine).__name__}, Alive : {Jaine.is_alive}")
-
-# $> python tester.py
-# {'first_name': 'Robert', 'is_alive': True, 'family_name': 'Baratheon', 'eyes': 'brown', 'hairs': 'dark'}
-# <bound method Baratheon.__str__ of Vector: ('Baratheon', 'brown', 'dark')>
-# <bound method Baratheon.__repr__ of Vector: ('Baratheon', 'brown', 'dark')>
-# True
-# False
-# Representing the Baratheon family.
-# ---
-# {'first_name': 'Cersei', 'is_alive': True, 'family_name': 'Lannister', 'eyes': 'blue', 'hairs': 'light'}
-# <bound method Lannister.__str__ of Vector: ('Lannister', 'blue', 'light')>
-# True
-# ---
-# Name : ('Jaine', 'Lannister'), Alive : True
