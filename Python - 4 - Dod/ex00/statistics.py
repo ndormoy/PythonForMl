@@ -41,6 +41,7 @@ def ft_variance(*args):
     variance = sum_of_square / n
     return variance
 
+
 def ft_standart_deviation(*args):
     """Calculate standart deviation"""
     n = len(args)
@@ -53,12 +54,13 @@ def ft_standart_deviation(*args):
 
 
 def check_args(*args, **kwargs):
-        if args:
-            for arg in args:
-                if not isinstance(arg, int):
-                    raise TypeError("args must be integers")
-        if not kwargs:
-            raise TypeError("Must have some kwargs")
+    if args:
+        for arg in args:
+            if not isinstance(arg, int):
+                raise TypeError("args must be integers")
+    if not kwargs:
+        raise TypeError("Must have some kwargs")
+
 
 def ft_statistics(*args: any, **kwargs: any) -> None:
     try:
