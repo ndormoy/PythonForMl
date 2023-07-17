@@ -52,25 +52,31 @@ def ft_standart_deviation(*args):
     return standard_deviation
 
 
+def check_args(*args, **kwargs):
+        if args:
+            for arg in args:
+                if not isinstance(arg, int):
+                    raise TypeError("args must be integers")
+        if not kwargs:
+            raise TypeError("Must have some kwargs")
+
 def ft_statistics(*args: any, **kwargs: any) -> None:
     try:
-        if (args):
-            # ft_mean(*args)
-            print(f"mean : {ft_mean(*args)}")
-            print(f"median : {ft_median(*args)}")
-            print(f"quartile : {ft_quartile(*args)}")
-            print(f"std : {ft_standart_deviation(*args)}") 
-            print(f"var : {ft_variance(*args)}")
-            
-        
-        # if not args:
-        #     print("ERROR")
-        #     return
-        # for arg in args:
-        #     if (not arg.isdigit()):
-        #         raise TypeError("args must be numbers")
-        # for kwarg in kwargs:
-        #     if (kwarg)
+        check_args(*args, **kwargs)
+        for key, value in kwargs.items():
+            if args:
+                if value == "mean":
+                    print(f"mean : {ft_mean(*args)}")
+                elif value == "median":
+                    print(f"median : {ft_median(*args)}")
+                elif value == "quartile":
+                    print(f"quartile : {ft_quartile(*args)}")
+                elif value == "std":
+                    print(f"std : {ft_standart_deviation(*args)}")
+                elif value == "var":
+                    print(f"var : {ft_variance(*args)}")
+            else:
+                print("ERROR")
 
-    except AssertionError as e:
+    except TypeError as e:
         print(e)
